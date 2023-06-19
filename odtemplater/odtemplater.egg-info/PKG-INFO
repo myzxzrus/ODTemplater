@@ -1,11 +1,19 @@
 Metadata-Version: 2.1
 Name: odtemplater
-Version: 0.1
+Version: 0.0.1
 Summary: ODT file template engine
-Home-page: UNKNOWN
-Author-email: myzxzrus@gmail.com
-License: UNKNOWN
-Platform: UNKNOWN
+Author-email: myzxzrus <myzxzrus@gmail.com>
+Project-URL: Homepage, https://github.com/myzxzrus/ODTemplater
+Project-URL: Bug Tracker, https://github.com/myzxzrus/ODTemplater/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
 
-UNKNOWN
+# ODTemplater
+
+Пакет `ODTemplater` выполняет функции наполнения данными подготовленного шаблона в формате `*.ODT`. 
+
+[Документация](https://github.com/myzxzrus/ODTemplater/tree/main/doc "")
 

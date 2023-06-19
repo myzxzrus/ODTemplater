@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0", 'Pillow>=8.0.1']
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "odtemplater"
+version = "0.0.1"
+authors = [
+  { name="myzxzrus", email="myzxzrus@gmail.com" },
+]
+description = "ODT file template engine"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/myzxzrus/ODTemplater"
+"Bug Tracker" = "https://github.com/myzxzrus/ODTemplater/issues"
