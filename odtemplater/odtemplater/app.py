@@ -17,17 +17,21 @@ class ODTLoader:
         """Получаем список данных которые входят шаблонный блок"""
         pass  # TODO
 
-    def _get_if_options(self) -> Optional[list]:
+    def _get_if_options(self) -> Optional[dict]:
         """Получаем условия"""
-        pass  # TODO
+        # Если опция ехтенд сет существует
+        if 'if_options' in self.data['content']:
+            return self.data['content']['if_options']
+        else:
+            return None
 
     def _get_extend_set_text(self) -> Optional[list]:
         """Getting a list of data to replace in tables that use the extend_set option. If there is no such data,
          None is returned"""
         # Если опция ехтенд сет существует
         if 'extend_set' in self.data['content']:
-            extend_set_text = self.data['content']['extend_set']
-            return extend_set_text
+            return self.data['content']['extend_set']
+
         else:
             return None
 
@@ -102,8 +106,9 @@ class ODTLoader:
             diagram = self._get_diagram()
             images = self._get_images()
             options = self._get_options()
+            if_options = self._get_if_options()
             meta = ODTMeta(name=name, document=document, text_replace=text_replace, extend_set_text=extend_set_text,
-                           diagram=diagram, images=images, options=options)
+                           diagram=diagram, images=images, options=options, if_options=if_options)
         except Exception:
             # logger.exception('app > ODTBuilder > load > Except:')
             raise
