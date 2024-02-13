@@ -3,6 +3,7 @@ from ..config import ConfigurationMyOdt
 from . import SettingExtendSet
 from . import SettingAddImages
 from . import SettingExtendDiagram
+from . import SettingIfBlock
 from ..lib import ODTMeta
 
 # logger = ConfigurationMyOdt.logger
@@ -19,6 +20,14 @@ class ODTApplySettings:
         """Function for applying settings to a template"""
         # Применяем настройки к шаблону
         try:
+            if self._date.if_options:
+                content_path = self._temp_path + self._file_name + '/content.xml'
+                with open(content_path) as file_in:
+                    text = file_in.read()
+                if_settings = SettingIfBlock(text, self._date)
+                text = if_settings.apply_setting()
+                with open(content_path, 'w') as file_out:
+                    file_out.write(text)
             if self._date.extend_set_text:
                 for select_option in self._date.options:
                     if 'extend_set' in select_option:  # определяем есть ли опция extend_set в полученных данных

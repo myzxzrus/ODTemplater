@@ -20,6 +20,7 @@ class ODTMeta(NamedTuple):
     diagram: Optional[list]  # Список содержащий данные для работы с диаграмой.
     images: Optional[list]  # Список содержащий словари словари с опциями для вставки изображений
     options: Optional[list]  # Список опций сгенерированных из входных данных
+    if_options: Optional[dict]
 
 
 class Handler:

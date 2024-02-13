@@ -19,14 +19,18 @@ class SettingIfBlock:
         for key, value in self.date.if_options.items():
             if not value:
                 regex_pattern = r"({%\s*if\s+" + re.escape(key) + r"\s*%}(.*?){%\s*endif\s*%})"
-                regex = re.compile(regex_pattern, re.DOTALL)
-                matches = regex.findall(text)
-                self.text.replce(matches[0][0], '')
+                regex = re.compile(regex_pattern, re.DOTALL | re.MULTILINE)
+                matches = regex.findall(self.text)
+                if len(matches) > 0:
+                    if len(matches[0]) > 0:
+                        self.text = self.text.replace(matches[0][0], '')
             else:
                 regex_pattern = r"({%\s*if\s+" + re.escape(key) + r"\s*%}(.*?){%\s*endif\s*%})"
-                regex = re.compile(regex_pattern, re.DOTALL)
-                matches = regex.findall(text)
-                self.text.replce(matches[0][0], matches[0][1])
+                regex = re.compile(regex_pattern, re.DOTALL | re.MULTILINE)
+                matches = regex.findall(self.text)
+                if len(matches) > 0:
+                    if len(matches[0]) > 1:
+                        self.text = self.text.replace(matches[0][0], matches[0][1])
 
     def apply_setting(self) -> str:
         """
